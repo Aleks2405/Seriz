@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Seriz
 {
     [Serializable]
-    class Student
+    class Student :IOne
     {
        private string Name { get; set; }
        private int Vozrast { get; set; }
@@ -23,7 +23,7 @@ namespace Seriz
 
        
 
-        public virtual string ToString()
+        public override string ToString()
         {
             return $"{Name} {Vozrast} {Gruppa}";
         }

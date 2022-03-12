@@ -37,7 +37,21 @@ namespace Seriz
               new Student ("Alehander2", 23, "BV121"),
              new Student ("Alehander3", 23, "BV121")
         };
-        
+            IFormatter formatter = new BinaryFormatter();
+             using (Stream stream = File.OpenWrite("test1.txt"))
+                 formatter.Serialize(stream, one);
+          List<Student> aa1;  // специально создаем для проверки работоспособности программы
+
+            
+            using (Stream stream = File.OpenRead("test1.txt"))
+                aa1 = (List<Student>)formatter.Deserialize(stream);
+            
+
+            foreach (var one1 in aa1)
+            {
+                Console.WriteLine(one1.ToString());
+            }
+
         }
     }
 }
